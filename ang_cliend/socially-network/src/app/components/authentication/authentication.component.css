@@ -1,0 +1,31 @@
+/* .bodyDiv {
+  height: 100vh;
+} */
+
+.bodyContainer {
+  margin-top: 50px !important;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.tabs a {
+  color: #26a69a;
+  font-weight: 500;
+}
+
+.tabs .active {
+  background: #26a69a36;
+}
+.tabs .indicator {
+  background: #26a69a36;
+}
+.tab a:focus.active {
+  background: #26a69a36;
+}
+
+.auth-content {
+  height: 60vh !important;
+}
