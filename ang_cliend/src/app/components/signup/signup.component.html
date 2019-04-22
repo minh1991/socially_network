@@ -2,12 +2,19 @@
   <div class="row">
     <div class="col s10 offset-s1">
       <h3 class="title">SIGN UP</h3>
+      <div id="errorMsg" *ngIf="errorMessage">
+        <span>{{ errorMessage }}</span>
+      </div>
 
       <form class="col s12" [formGroup]="signUpForm" novalidate (ngSubmit)="signUpUser()">
         <div class="row">
           <div class="input-field col s12">
             <input id="signup-username" type="text" formControlName="username" />
             <label for="username">Username</label>
+            <app-error-validate
+              [control]="signUpForm.controls.username"
+              [name-control]="'Username'"
+            ></app-error-validate>
           </div>
         </div>
 
@@ -15,6 +22,7 @@
           <div class="input-field col s12">
             <input id="signup-email" type="email" formControlName="email" />
             <label for="email">Email</label>
+            <app-error-validate [control]="signUpForm.controls.email" [name-control]="'Email'"></app-error-validate>
           </div>
         </div>
 
@@ -22,6 +30,10 @@
           <div class="input-field col s12">
             <input id="signup-password" type="password" formControlName="password" />
             <label for="password">Password</label>
+            <app-error-validate
+              [control]="signUpForm.controls.password"
+              [name-control]="'Password'"
+            ></app-error-validate>
           </div>
         </div>
         <div class="row signup-btn">

@@ -27,7 +27,7 @@ module.exports = {
     const { error, value } = Joi.validate(req.body, schema);
     console.log(value);
     if (error && error.details) {
-      return res.status(HttpStatus.BAD_GATEWAY).json({ message: error.details });
+      return res.status(HttpStatus.BAD_GATEWAY).json({ msg: error.details });
     }
 
     //KIỂM TRA MAIL ĐÃ TỒN TẠI

@@ -31,7 +31,7 @@ mongoose
 app.get('/', (req, res) => {
   return res.send('xin chào');
 });
-const port = process.env.PORT || 6000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`server đã chạy ở port ${port}`);
 });
