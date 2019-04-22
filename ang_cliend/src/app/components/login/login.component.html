@@ -1,24 +1,42 @@
 <div class="container">
   <div class="row">
     <div class="col s10 offset-s1">
+      <!-- loading - page -->
+      <div class="progress" *ngIf="showLoading">
+        <div class="indeterminate"></div>
+      </div>
+
       <h3 class="title">LOGIN</h3>
 
-      <form class="col s12">
+      <!-- Message từ Server -->
+      <div id="errorMsg" *ngIf="errorMessage">
+        <span>{{ errorMessage }}</span>
+      </div>
+
+      <form class="col s12" [formGroup]="loginForm" novalidate (ngSubmit)="loginUser()">
         <div class="row">
           <div class="input-field col s12">
-            <input id="login-username" type="text" />
+            <input id="login-username" type="text" formControlName="username" />
             <label for="username">Username</label>
+            <app-error-validate
+              [control]="loginForm.controls.username"
+              [name-control]="'Username'"
+            ></app-error-validate>
           </div>
         </div>
 
         <div class="row">
           <div class="input-field col s12">
-            <input id="login-password" type="password" />
+            <input id="login-password" type="password" formControlName="password" />
             <label for="password">Password</label>
+            <app-error-validate
+              [control]="loginForm.controls.password"
+              [name-control]="'Password'"
+            ></app-error-validate>
           </div>
         </div>
         <div class="row login-btn">
-          <button class="waves-effect waves-light btn">Login</button>
+          <button class="waves-effect waves-light btn" [disabled]="!loginForm.valid">Login</button>
         </div>
       </form>
     </div>

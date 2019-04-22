@@ -7,6 +7,7 @@ const Jwt = require('jsonwebtoken');
 const dbConfig = require('../config/keys');
 
 module.exports = {
+  // SIGN UP
   async CreateUser(req, res) {
     // console.log(req.body);
     const schema = Joi.object().keys({
@@ -67,5 +68,36 @@ module.exports = {
           console.log(err);
         });
     });
+  },
+
+  // LOGIN
+  async LoginUser(req, res) {
+    if (!req.body.username) {
+      return res.status(HttpStatus.NOT_FOUND).json({ message: 'Username Không được bỏ trống' });
+    }
+    if (!req.body.password) {
+      return res.status(HttpStatus.NOT_FOUND).json({ message: 'Password Không được bỏ trống' });
+    }
+    await User.findOne({ username: Support.firstUpper(req.body.username) })
+      .then(user => {
+        if (!user) {
+          return res.status(HttpStatus.NOT_FOUND).json({ message: 'User không tồn tại' });
+        } else {
+          return bcrypt.compare(req.body.password, user.password).then(result => {
+            if (!result) {
+              return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Sai password' });
+            } else {
+              const token = Jwt.sign({ data: user }, dbConfig.secret, {
+                expiresIn: '2 days'
+              });
+              res.cookie('myToken', token);
+              res.status(HttpStatus.OK).json({ message: 'Đăng nhập thành công', user, token });
+            }
+          });
+        }
+      })
+      .catch(err => {
+        return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Login User Errors' });
+      });
   }
 };

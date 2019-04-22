@@ -1,6 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col s10 offset-s1">
+      <!-- loading - page -->
+      <div class="progress" *ngIf="showLoading">
+        <div class="indeterminate"></div>
+      </div>
+
       <h3 class="title">SIGN UP</h3>
 
       <!-- Message từ Server -->
@@ -39,7 +44,7 @@
           </div>
         </div>
         <div class="row signup-btn">
-          <button class="waves-effect waves-light btn">Sign Up</button>
+          <button class="waves-effect waves-light btn" [disabled]="!signUpForm.valid">Sign Up</button>
         </div>
       </form>
     </div>
