@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 const AuthRouter = require('./routers/authentication.router');
+const CheckBoxRouter = require('./routers/checkBox.router');
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use(cookieParser());
 app.use(morgan('dev'));
 app.use('/api/socially', AuthRouter);
+app.use('/api/socially', CheckBoxRouter);
 
 // DATA BASE
 mongoose.Promise = global.Promise;

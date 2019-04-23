@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 const BASEURL = 'http://localhost:3000/api/socially';
 @Injectable({
   providedIn: 'root'
@@ -15,4 +17,14 @@ export class AuthenticationService {
   loginUser(data): Observable<any> {
     return this.http.post(`${BASEURL}/login`, data);
   }
+
+  checkBoxSubmit(data): Observable<any> {
+    // return this.http.post(`${BASEURL}/feed`, data);
+    return this.http.post<any>(`${BASEURL}/feed`, data, httpOptions);
+  }
+
+  // checkBoxShow(data): Observable<any> {
+  //   // return this.http.post(`${BASEURL}/feed`, data);
+  //   return this.http.post<any>(`${BASEURL}/checkbox-confirm`, data, httpOptions);
+  // }
 }

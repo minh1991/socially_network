@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './../../services/authentication.service';
+import { TokenService } from './../../services/token.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private authenticationService: AuthenticationService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private tokenService: TokenService
   ) {}
 
   ngOnInit() {
@@ -30,6 +32,8 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm.value);
     this.authenticationService.loginUser(this.loginForm.value).subscribe(
       data => {
+        // console.log(typeof data.token);
+        this.tokenService.SetToken(data.token);
         console.log(data);
         this.loginForm.reset();
         setTimeout(() => {
