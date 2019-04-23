@@ -19,12 +19,10 @@ export class AuthenticationService {
   }
 
   checkBoxSubmit(data): Observable<any> {
-    // return this.http.post(`${BASEURL}/feed`, data);
-    return this.http.post<any>(`${BASEURL}/feed`, data, httpOptions);
+    return this.http.post<any>(`${BASEURL}/checkbox-submit`, data, httpOptions);
   }
 
-  // checkBoxShow(data): Observable<any> {
-  //   // return this.http.post(`${BASEURL}/feed`, data);
-  //   return this.http.post<any>(`${BASEURL}/checkbox-confirm`, data, httpOptions);
+  // checkboxConfirm(data): Observable<any> {
+  //   return this.http.post<any>(`${BASEURL}/checkbox-submit`, data, httpOptions);
   // }
 }

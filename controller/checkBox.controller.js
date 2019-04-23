@@ -4,30 +4,31 @@ const Joi = require('joi');
 const HttpStatus = require('http-status-codes');
 
 module.exports = {
-  async CheckBox(req, res) {
-    console.log(req.body.id);
-    // const schema = Joi.array().keys({
-    //   checkBoxFormArr: Joi.object().required()
-    // });
-    // const { error, value } = Joi.validate(req.body, schema);
-    // console.log(value);
-    // if (error) {
-    //   return res.status(HttpStatus.BAD_GATEWAY).json({ msg: error.details });
-    // }
-    // const dataCheckBox = {
-    //   checkbox: value.checkBoxFormArr
-    // };
+  async CheckBoxSubmit(req, res) {
+    console.log('aaa ' + req.body + ' ' + typeof req.body);
 
-    // CheckBox.create(dataCheckBox)
-    //   .then(check => {
-    //     res.status(HttpStatus.CREATED).json({
-    //       message: 'CheckBox OK',
-    //       check
-    //     });
-    //   })
-    //   .catch(err => {
-    //     res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'CheckBox xảy ra lỗi' });
-    //     console.log(err);
-    //   });
+    const { error } = req.body;
+    const value = req.body;
+    console.log('bbb ' + value + ' ' + typeof value);
+    if (error) {
+      return res.status(HttpStatus.BAD_GATEWAY).json({ msg: error.details });
+    }
+    if (!value) {
+      console.log('Không có dữ liệu');
+    } else {
+      // const body = value.map(item => {
+      //   return item;
+      // });
+      // const body = value.toString();
+      // console.log('sss ' + body + ' ' + typeof body);
+      const body = { checkBoxFormArr: value };
+      CheckBox.create(body)
+        .then(item => {
+          res.status(HttpStatus.CREATED).json({ message: 'nhập checkbox thành công', item });
+        })
+        .catch(err => {
+          res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'nhập checkbox bị lỗi' });
+        });
+    }
   }
 };

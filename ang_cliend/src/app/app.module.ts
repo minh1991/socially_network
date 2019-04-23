@@ -10,7 +10,6 @@ import { CheckBoxConfirm } from './services/checkboxconfirm.service';
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, AuthenticationModule, FeedsModule],
-
   providers: [CookieService, CheckBoxConfirm],
   bootstrap: [AppComponent]
 })

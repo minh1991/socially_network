@@ -18,7 +18,6 @@ import { CheckBoxConfirm } from './../services/checkboxconfirm.service';
     CheckBoxConfirmComponent
   ],
   imports: [CommonModule, HttpClientModule, FormsModule, ReactiveFormsModule],
-
   exports: [AuthenticationComponent, LoginComponent, SignupComponent, CheckBoxConfirmComponent],
   providers: [AuthenticationService, CheckBoxConfirm]
 })
