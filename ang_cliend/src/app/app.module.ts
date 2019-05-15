@@ -5,12 +5,13 @@ import { AppComponent } from './app.component';
 import { AuthenticationModule } from './modules/authentication.module';
 import { FeedsModule } from './modules/feeds.module';
 import { CookieService } from 'ngx-cookie-service';
-import { CheckBoxConfirm } from './services/checkboxconfirm.service';
+
+import { FeedsComponent } from './components/feeds/feeds.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, FeedsComponent],
   imports: [BrowserModule, AppRoutingModule, AuthenticationModule, FeedsModule],
-  providers: [CookieService, CheckBoxConfirm],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
