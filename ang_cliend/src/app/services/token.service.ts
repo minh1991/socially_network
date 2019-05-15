@@ -5,6 +5,9 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root'
 })
 export class TokenService {
+  static GetToken() {
+    throw new Error("Method not implemented.");
+  }
   constructor(private cookie: CookieService) {}
   SetToken(token) {
     this.cookie.set('myToken', token);
