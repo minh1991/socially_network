@@ -4,12 +4,15 @@
   "description": "socially, connector, Appchat",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "client": "cd ang_cliend && ng serve --open",
+    "server": "nodemon server.js",
+    "dev": "concurrently - kill-others \"npm run server\" \"npm run client\""
   },
   "author": "Lưu Quang Minh",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "concurrently": "^4.1.0",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
     "express": "^4.16.4",

@@ -6,12 +6,12 @@ import { AuthenticationModule } from './modules/authentication.module';
 import { FeedsModule } from './modules/feeds.module';
 import { CookieService } from 'ngx-cookie-service';
 
-import { FeedsComponent } from './components/feeds/feeds.component';
+
 
 @NgModule({
-  declarations: [AppComponent, FeedsComponent],
+  declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, AuthenticationModule, FeedsModule],
   providers: [CookieService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

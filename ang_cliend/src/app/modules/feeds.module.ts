@@ -13,4 +13,4 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   exports: [FeedsComponent],
   providers: [TokenService]
 })
-export class FeedsModule {}
+export class FeedsModule { }
