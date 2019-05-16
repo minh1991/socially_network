@@ -4,7 +4,9 @@ const messenger = {
     MSG0002: '{0} thành công',
     MSG0003: '{0} không được bỏ trống',
     MSG0004: '{0} không tồn tại',
-    MSG0005: 'Bạn đã nhập sai {0}'
+    MSG0005: 'Bạn đã nhập sai {0}',
+    MSG0006: 'Không có Token',
+    MSG0007: 'Token hết hạn, mời bạn Login lại',
 }
 
 module.exports = messenger
