@@ -2,12 +2,12 @@
   <div class="col s12 m12 l12">
     <div class="card post01v">
       <div class="card-content">
-        <form>
+        <form [formGroup]="formPost" novalidate (click)="submitPost()">
           <div class="formDiv">
-            <textarea id="textarea1" class="materialize-textarea"></textarea>
-            <div class="file-field input-field">
-              <div class="row">
-                <div class="col s6">
+            <textarea id="textarea1" class="materialize-textarea" formControlName="post"></textarea>
+            <div class="row">
+              <div class="col s6">
+                <div class="file-field input-field">
                   <div class="btn">
                     <span>
                       <i class="Medium material-icons">insert_photo</i>
@@ -18,11 +18,11 @@
                     <input class="file-path validate" type="text">
                   </div>
                 </div>
-                <div class="col s6">
-                  <button class="btn postBtn">
-                    Chia sẻ
-                  </button>
-                </div>
+              </div>
+              <div class="col s6">
+                <button class="btn postBtn">
+                  Chia sẻ
+                </button>
               </div>
             </div>
           </div>

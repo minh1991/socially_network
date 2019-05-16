@@ -11,5 +11,7 @@
 }
 
 .postBtn {
-  width: 40%;
+  width: 50%;
+  margin: 1rem;
+  height: 3.5rem;
 }

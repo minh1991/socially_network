@@ -3,9 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { FeedsComponent } from './components/feeds/feeds.component';
 
+
 const routes: Routes = [
   { path: '', component: AuthenticationComponent },
-  { path: 'feed', component: FeedsComponent },
+  { path: 'feed', component: FeedsComponent, },
 ];
 
 @NgModule({
@@ -13,4 +14,4 @@ const routes: Routes = [
 
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

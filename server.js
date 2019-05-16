@@ -16,18 +16,14 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }))
 app.use(cookieParser())
 app.use(morgan('dev'))
 app.use('/api/socially', AuthRouter)
-app.use('/api/socially', PostRouter)
+app.use('/api/socially/post', PostRouter)
 
 // DATA BASE
 mongoose.Promise = global.Promise
-mongoose
-  .connect(db, { useNewUrlParser: true })
-  .then(() => {
-    console.log('mongoDb đã chạy')
-  })
-  .catch(err => {
-    console.log(err);
-  });
+mongoose.connect(db, { useNewUrlParser: true }).then(() => {
+  console.log('mongoDb đã chạy')
+})
+  .catch(err => { console.log(err); });
 
 // PORT
 
