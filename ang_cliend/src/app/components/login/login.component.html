@@ -16,12 +16,9 @@
       <form class="col s12" [formGroup]="loginForm" novalidate (ngSubmit)="loginUser()">
         <div class="row">
           <div class="input-field col s12">
-            <input id="login-username" type="text" formControlName="username" />
-            <label for="username">Username</label>
-            <app-error-validate
-              [control]="loginForm.controls.username"
-              [name-control]="'Username'"
-            ></app-error-validate>
+            <input id="login-email" type="text" formControlName="email" />
+            <label for="email">Email</label>
+            <app-error-validate [control]="loginForm.controls.email" [name-control]="'Email'"></app-error-validate>
           </div>
         </div>
 
@@ -29,10 +26,8 @@
           <div class="input-field col s12">
             <input id="login-password" type="password" formControlName="password" />
             <label for="password">Password</label>
-            <app-error-validate
-              [control]="loginForm.controls.password"
-              [name-control]="'Password'"
-            ></app-error-validate>
+            <app-error-validate [control]="loginForm.controls.password" [name-control]="'Password'">
+            </app-error-validate>
           </div>
         </div>
         <div class="row login-btn">

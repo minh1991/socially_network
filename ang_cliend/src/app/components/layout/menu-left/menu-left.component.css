@@ -1,0 +1,21 @@
+.news {
+  text-align: center;
+}
+
+.news-item {
+  margin: 0 2% 0 2%;
+  padding: 2%;
+  background: #26a69a9c;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.news-item span {
+  font-weight: 500;
+  color: aliceblue;
+}
+
+.news-item p {
+  color: aliceblue;
+}

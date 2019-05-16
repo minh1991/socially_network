@@ -6,13 +6,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./error-validate.component.css']
 })
 export class ErrorValidateComponent implements OnInit {
+  // tslint:disable-next-line:no-input-rename
   @Input('control') control;
+  // tslint:disable-next-line:no-input-rename
   @Input('name-control') controlName;
-  constructor() {}
+  constructor() { }
   get message() {
     // console.log(this.controlName);
     // console.log(this.control);
-    for (let err in this.control.errors) {
+    for (const err in this.control.errors) {
       if (this.control.dirty) {
         return this.getErrorMsg(err, this.control.errors[err]);
       }
@@ -21,7 +23,7 @@ export class ErrorValidateComponent implements OnInit {
   }
 
   getErrorMsg(err, value) {
-    let messages = {
+    const messages = {
       required: `${this.controlName} Không được bỏ trống`,
       minlength: `${this.controlName} ít nhất là ${value.requiredLength} ký tự`,
       maxlength: `${this.controlName} nhiều nhất là ${value.requiredLength} ký tự`,
@@ -29,5 +31,5 @@ export class ErrorValidateComponent implements OnInit {
     };
     return messages[err];
   }
-  ngOnInit() {}
+  ngOnInit() { }
 }
