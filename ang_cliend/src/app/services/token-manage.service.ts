@@ -11,11 +11,19 @@ export class TokenManageService implements HttpInterceptor {
 
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next.handle(req);
-    // const headersConfig = {
-    //   'Accept': 'application/json',
-
-    // }
+    // return next.handle(req);
+    const headersConfig = {
+      'Content-Type': 'application/json',
+      Accept: 'application/json'
+    };
+    const token = this.tokenService.GetToken();
+    if (token) {
+      // tslint:disable-next-line:no-string-literal
+      headersConfig['Authorization'] = `beader ${token}`;
+    }
+    // tslint:disable-next-line:variable-name
+    const _req = req.clone({ setHeaders: headersConfig });
+    return next.handle(_req);
   }
 
 }

@@ -7,6 +7,7 @@ const messenger = {
     MSG0005: 'Bạn đã nhập sai {0}',
     MSG0006: 'Không có Token',
     MSG0007: 'Token hết hạn, mời bạn Login lại',
+    MSG0008: 'Không xác thực được người dùng',
 }
 
 module.exports = messenger

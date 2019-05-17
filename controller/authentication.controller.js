@@ -28,7 +28,7 @@ module.exports = {
         .required()
     });
     const { error, value } = Joi.validate(req.body, schema);
-    console.log(value)
+    // console.log(value)
     if (error && error.details) {
       return res.status(HttpStatus.BAD_GATEWAY).json({ msg: error.details })
     }
@@ -67,7 +67,7 @@ module.exports = {
         })
         .catch(err => {
           res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: format(messenger.MSG0000, 'Đăng ký') })
-          console.log(err)
+          // console.log(err)
         });
     });
   },

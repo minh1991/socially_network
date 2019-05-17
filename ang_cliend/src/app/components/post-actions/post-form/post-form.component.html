@@ -2,7 +2,7 @@
   <div class="col s12 m12 l12">
     <div class="card post01v">
       <div class="card-content">
-        <form [formGroup]="formPost" novalidate (click)="submitPost()">
+        <form [formGroup]="formPost" novalidate>
           <div class="formDiv">
             <textarea id="textarea1" class="materialize-textarea" formControlName="post"></textarea>
             <div class="row">
@@ -20,7 +20,7 @@
                 </div>
               </div>
               <div class="col s6">
-                <button class="btn postBtn">
+                <button class="btn postBtn" (click)="submitPost()">
                   Chia sẻ
                 </button>
               </div>
