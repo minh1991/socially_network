@@ -11,4 +11,7 @@ export class PostService {
   addPost(data): Observable<any> {
     return this.http.post(`${BASEURL}/post/add-post`, data);
   }
+  GetAllPosts(): Observable<any> {
+    return this.http.get(`${BASEURL}/post/all-posts`);
+  }
 }

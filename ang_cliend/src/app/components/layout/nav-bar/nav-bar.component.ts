@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
+  user: any;
 
   constructor(
     private tokenService: TokenService,
@@ -15,6 +16,8 @@ export class NavBarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.user = this.tokenService.GetPayLoad();
+    // console.log('user--', this.user);
   }
 
   logOut() {

@@ -47,5 +47,19 @@ module.exports = {
             console.log(error)
             res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: format(messenger.MSG0000, 'addPost') })
         }
+    },
+
+    async GetAllPosts(req, res) {
+        // console.log(req);
+        try {
+            const posts = await Post.find({})
+                .populate('users')
+                .sort({ createdAt: -1 })
+            return res.status(HttpStatus.OK)
+                .json({ message: format(messenger.MSG0009, 'All Posts'), posts })
+        } catch (error) {
+            return res.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .json({ message: format(messenger.MSG0010, 'All Posts') })
+        }
     }
 }

@@ -1,0 +1,35 @@
+.title {
+    color: #26a69a;
+    font-weight: 500;
+}
+.small-title{
+    color: #7ac9c1;
+    font-weight: 400;
+}
+.header,
+.content .card-content {
+    background-color: #f4fefd;
+}
+
+.content img {
+    border-radius: 10px;
+}
+
+.content {
+    margin-bottom: 0;
+}
+
+#like {
+    margin-right: 15px;
+}
+#comment {
+    margin-left: 15px;
+}
+
+.iconSpan{
+    font-size: 15px;
+}
+
+.card-action a i{
+    color: #26a69a;
+}

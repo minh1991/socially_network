@@ -18,4 +18,14 @@ export class TokenService {
   DeleteToken() {
     return this.cookie.delete('myToken');
   }
+
+  GetPayLoad() {
+    const token = this.GetToken();
+    let payLoad;
+    if (token) {
+      payLoad = token.split('.')[1]; // cắt chuỗi băng . và lấy phần tử thứ 2\
+      payLoad = JSON.parse(window.atob(payLoad));
+    }
+    return payLoad.data;
+  }
 }
