@@ -22,6 +22,8 @@ const PostSchema = new mongoose.Schema({
             username: { type: String, ref: "users" }
         }
     ],
+
+    totalLikes: { type: Number, default: 0 },
     createdAt: { type: Date, default: Date.now() }
 })
 // exports model ra để sử dụng

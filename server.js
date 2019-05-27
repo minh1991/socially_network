@@ -10,6 +10,11 @@ const PostRouter = require('./routers/post.router')
 
 const app = express();
 
+//Socket.Io setting
+const server = require('http').createServer(app)
+const io = require('socket.io').listen(server)
+require('./socket/stream')(io)
+
 app.use(cors());
 app.use(express.json({ limit: '50mb' }))
 app.use(express.urlencoded({ extended: true, limit: '50mb' }))
@@ -31,6 +36,6 @@ app.get('/', (req, res) => {
   return res.send('xin chào');
 });
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`server đã chạy ở port ${port}`);
 });

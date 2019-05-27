@@ -1,8 +1,8 @@
-<ul class="collection">
+<ul class="collection" *ngFor="let post of allPosts">
     <li class="collection-item avatar header">
         <img src="https://pbs.twimg.com/profile_images/1046968391389589507/_0r5bQLl_400x400.jpg" alt="" class="circle">
-        <span class="title" style="font-size: 1.5rem">name</span>
-        <p class="small-title">Date
+        <span class="title" style="font-size: 1.5rem">{{post.username}}</span>
+        <p class="small-title">{{DateTimeCover(post.createdAt)}}
             <br> Country
         </p>
     </li>
@@ -15,17 +15,17 @@
                         alt="">
                 </div>
                 <div class="card-content">
-                    <p>I am a very simple card.</p>
+                    <p>{{post.post}}</p>
                 </div>
                 <div class="card-action">
                     <small id="like">
                         <a href="#"><i class="material-icons">thumb_up</i></a>
-                        <span class="iconSpan">10</span>
+                        <span class="iconSpan">{{post.totalLikes}}</span>
                     </small>
 
                     <small id="comment">
                         <a href="#"><i class="material-icons">message</i></a>
-                        <span class="iconSpan">10</span>
+                        <span class="iconSpan">{{post.comments.length}}</span>
                     </small>
 
                 </div>
