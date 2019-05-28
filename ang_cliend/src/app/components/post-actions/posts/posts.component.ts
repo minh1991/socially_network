@@ -26,12 +26,16 @@ export class PostsComponent implements OnInit {
     this.postService.GetAllPosts().subscribe(data => {
       // console.log('all posts data--', data);
       this.allPosts = data.posts;
-      console.log(this.allPosts);
+      // console.log(this.allPosts);
     })
   }
 
   DateTimeCover(time) {
     return moment(time).fromNow();
+  }
+
+  likeClick(like) {
+    console.log(like);
   }
 
 

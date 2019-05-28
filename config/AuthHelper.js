@@ -11,7 +11,7 @@ module.exports = {
         // console.log('headers', req.headers);
         const token = req.cookies.myToken || req.headers.authorization.split(' ')[1]
         // console.log('req', req);
-        console.log('token--', token)
+        // console.log('token--', token)
         if (!token) {
             return res.status(HttpStatus.FORBIDDEN).json({ messenger: messenger.MSG0006 })
         } else {

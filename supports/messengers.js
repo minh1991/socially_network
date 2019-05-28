@@ -10,6 +10,7 @@ const messenger = {
     MSG0008: 'Không xác thực được người dùng',
     MSG0009: 'Show all {0}',
     MSG0010: 'Không thể Show all {0}',
+    MSG0011: '{0} thất bại',
 }
 
 module.exports = messenger

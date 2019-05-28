@@ -19,12 +19,14 @@
                 </div>
                 <div class="card-action">
                     <small id="like">
-                        <a href="#"><i class="material-icons">thumb_up</i></a>
-                        <span class="iconSpan">{{post.totalLikes}}</span>
+                        <a (click)="likeClick(like)">
+                            <i class="material-icons">thumb_up</i>
+                            <span class="iconSpan">{{post.totalLikes}}</span>
+                        </a>
                     </small>
 
                     <small id="comment">
-                        <a href="#"><i class="material-icons">message</i></a>
+                        <a><i class="material-icons">message</i></a>
                         <span class="iconSpan">{{post.comments.length}}</span>
                     </small>
 
