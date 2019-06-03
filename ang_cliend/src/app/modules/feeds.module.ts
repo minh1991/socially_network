@@ -9,13 +9,13 @@ import { NavBarComponent } from './../components/layout/nav-bar/nav-bar.componen
 import { MenuLeftComponent } from './../components/layout/menu-left/menu-left.component';
 import { PostFormComponent } from '../components/post-actions/post-form/post-form.component';
 import { PostsComponent } from '../components/post-actions/posts/posts.component';
+import { CommentsFormComponent } from '../components/comment-actions/comments-form/comments-form.component';
+import { CommentsComponent } from './../components/comment-actions/comments/comments.component';
+
 
 @NgModule({
-  declarations: [FeedsComponent, NavBarComponent, MenuLeftComponent, PostFormComponent, PostsComponent],
+  declarations: [FeedsComponent, NavBarComponent, MenuLeftComponent, PostFormComponent, PostsComponent, CommentsComponent, CommentsFormComponent],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule],
-
-
-
 
   exports: [FeedsComponent, NavBarComponent, MenuLeftComponent, PostFormComponent, PostsComponent],
   providers: [TokenService, PostService]

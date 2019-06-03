@@ -1,0 +1,19 @@
+<div class="card post01v">
+  <div class="card-content">
+    <form [formGroup]="commentForm">
+      <div class="formDiv">
+        <textarea id="textarea1" class="materialize-textarea" formControlName="post"></textarea>
+        <div class="row">
+
+          <div class="col s6">
+            <button class="btn postBtn" (click)="submitComment()" [disabled]="!commentForm.valid">
+              Chia sẻ
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- <p>sdưqdưq</p> -->

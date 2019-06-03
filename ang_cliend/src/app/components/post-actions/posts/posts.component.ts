@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostService } from './../../../services/post.service';
 import * as moment from 'moment';
 import io from 'socket.io-client';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-posts',
@@ -12,7 +13,8 @@ export class PostsComponent implements OnInit {
   socket: any;
   allPosts = [];
   constructor(
-    private postService: PostService
+    private postService: PostService,
+    private router: Router
   ) { this.socket = io('http://localhost:3000') }
 
   ngOnInit() {
@@ -34,8 +36,19 @@ export class PostsComponent implements OnInit {
     return moment(time).fromNow();
   }
 
-  likeClick(like) {
-    console.log(like);
+  likeClick(post) {
+    // console.log(post);
+    this.postService.addLike(post).subscribe(data => {
+      // console.log(data); //msg:like thanh cong
+      this.socket.emit('refresh', {})
+    },
+      err => console.log(err)
+    )
+  }
+
+  commentBoxClick(post) {
+    // console.log(post);
+    this.router.navigate(['comments', post._id])
   }
 
 

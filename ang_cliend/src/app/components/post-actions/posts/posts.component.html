@@ -11,22 +11,24 @@
         <div class="col s12">
             <div class="card">
                 <div class="card-image">
-                    <img src="https://nevadahumanesociety.org/wp-content/uploads/2018/08/NHS-Slider-03-1024x731.jpg"
-                        alt="">
+                    <!-- <img src="https://nevadahumanesociety.org/wp-content/uploads/2018/08/NHS-Slider-03-1024x731.jpg"
+                        alt=""> -->
                 </div>
                 <div class="card-content">
                     <p>{{post.post}}</p>
                 </div>
                 <div class="card-action">
                     <small id="like">
-                        <a (click)="likeClick(like)">
+                        <a (click)="likeClick(post)">
                             <i class="material-icons">thumb_up</i>
                             <span class="iconSpan">{{post.totalLikes}}</span>
                         </a>
                     </small>
 
                     <small id="comment">
-                        <a><i class="material-icons">message</i></a>
+                        <a (click)="commentBoxClick(post)">
+                            <i class="material-icons">message</i>
+                        </a>
                         <span class="iconSpan">{{post.comments.length}}</span>
                     </small>
 

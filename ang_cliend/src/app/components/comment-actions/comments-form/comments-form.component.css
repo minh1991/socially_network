@@ -1,0 +1,18 @@
+.formDiv {
+    margin: 0 20px 0 20px;
+  }
+  
+  .postBtn {
+    float: left;
+  }
+  
+  .file-field input [type='file'] {
+    width: 70% !important;
+  }
+  
+  .postBtn {
+    width: 50%;
+    margin: 1rem;
+    height: 3.5rem;
+  }
+  
