@@ -83,5 +83,27 @@ module.exports = {
             return res.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .json({ message: format(messenger.MSG0011, 'Like') })
         }
+    },
+
+    async AddComment(req, res) {
+        try {
+            const postId = req.body.postId
+            await Post.update({ _id: likeId }, {
+                $push: {
+                    likes: {
+                        username: req.body.username
+                    }
+                },
+                $inc: { totalLikes: 1 }
+            }).then(() => {
+                res.status(HttpStatus.OK).json({ message: format(messenger.MSG0002, 'Like') })
+            }).catch((err) => {
+                res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: format(messenger.MSG0011, 'Like') })
+            })
+        } catch (error) {
+            console.log(error);
+            return res.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .json({ message: format(messenger.MSG0011, 'Like') })
+        }
     }
 }
