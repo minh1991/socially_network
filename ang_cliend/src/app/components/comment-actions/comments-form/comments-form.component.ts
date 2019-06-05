@@ -12,7 +12,7 @@ import { PostService } from './../../../services/post.service';
 })
 export class CommentsFormComponent implements OnInit {
   postId: any;
-  commentForm: FormGroup
+  commentForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -21,21 +21,23 @@ export class CommentsFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.postId = this.route.snapshot.paramMap.get('id')
-    this.init()
+    this.postId = this.route.snapshot.paramMap.get('id');
+    // console.log('this.postId', this.postId);
+    this.init();
   }
 
   init() {
     this.commentForm = this.fb.group({
       comment: ['', Validators.required]
-    })
+    });
   }
 
   submitComment() {
     // console.log(this.commentForm.value);
-    this.postService.addComment(this.commentForm.value).subscribe(data => {
+    this.postService.addComment(this.postId, this.commentForm.value.comment).subscribe(data => {
       console.log(data);
-    })
+      this.commentForm.reset();
+    });
   }
 
 }

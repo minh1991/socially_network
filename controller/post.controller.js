@@ -87,23 +87,45 @@ module.exports = {
 
     async AddComment(req, res) {
         try {
+            // console.log("req.body", req.body)
             const postId = req.body.postId
-            await Post.update({ _id: likeId }, {
+            // console.log('postId--', postId)
+            await Post.update({ _id: postId }, {
                 $push: {
-                    likes: {
-                        username: req.body.username
+                    comments: {
+                        userId: req.user._id,
+                        username: req.body.username,
+                        comment: req.body.comment,
+                        creatAt: new Date()
                     }
-                },
-                $inc: { totalLikes: 1 }
+                }
+
             }).then(() => {
-                res.status(HttpStatus.OK).json({ message: format(messenger.MSG0002, 'Like') })
+                res.status(HttpStatus.OK).json({ message: format(messenger.MSG0002, 'Comment') })
             }).catch((err) => {
-                res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: format(messenger.MSG0011, 'Like') })
+                res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: format(messenger.MSG0011, 'Comment') })
             })
         } catch (error) {
             console.log(error);
             return res.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .json({ message: format(messenger.MSG0011, 'Like') })
+                .json({ message: format(messenger.MSG0011, 'Comment') })
+        }
+    },
+
+    async GetPost(req, res) {
+        try {
+            // console.log(req.params.id)
+            await Post.findOne({ _id: req.params.id }).populate('user').populate('comments.userId').then(post => {
+                // console.log("post--", post)
+                res.status(HttpStatus.OK).json({ message: format(messenger.MSG0002, 'GetPost') }, post)
+            }).catch(err => {
+                return res.status(HttpStatus.NOT_FOUND)
+                    .json({ message: format(messenger.MSG0011, 'GetPost') })
+            })
+        } catch (error) {
+            console.log(error);
+            return res.status(HttpStatus.NOT_FOUND)
+                .json({ message: format(messenger.MSG0011, 'GetPost') })
         }
     }
 }
