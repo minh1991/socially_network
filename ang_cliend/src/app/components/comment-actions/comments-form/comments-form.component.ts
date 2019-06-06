@@ -35,7 +35,7 @@ export class CommentsFormComponent implements OnInit {
   submitComment() {
     // console.log(this.commentForm.value);
     this.postService.addComment(this.postId, this.commentForm.value.comment).subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.commentForm.reset();
     });
   }

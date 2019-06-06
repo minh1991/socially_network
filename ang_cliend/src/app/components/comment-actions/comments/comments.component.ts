@@ -11,6 +11,7 @@ export class CommentsComponent implements OnInit, AfterViewInit {
 
   navBarElm: any;
   postId: any;
+  commentArr = [];
 
   constructor(
     private postService: PostService,
@@ -32,7 +33,9 @@ export class CommentsComponent implements OnInit, AfterViewInit {
   GetPost() {
     // console.log(this.postId);
     this.postService.GetPost(this.postId).subscribe(data => {
-      console.log(data);
+      // console.log(data);
+      this.commentArr = data.post;
+      console.log('commentArr--', this.commentArr);
     });
   }
 
