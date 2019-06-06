@@ -17,7 +17,7 @@ export class CommentsComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute
   ) { }
 
-  // xóa phần ảnh
+  // xóa phần ảnh header
   // bắt đầu sẽ cho bắt class nav-content của phần nav-bar
   // sau đó sẽ chuyển phần style đó thành none để biến mất
   ngOnInit() {
@@ -30,6 +30,7 @@ export class CommentsComponent implements OnInit, AfterViewInit {
   }
 
   GetPost() {
+    // console.log(this.postId);
     this.postService.GetPost(this.postId).subscribe(data => {
       console.log(data);
     });

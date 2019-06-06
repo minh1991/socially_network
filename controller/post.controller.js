@@ -115,13 +115,16 @@ module.exports = {
     async GetPost(req, res) {
         try {
             // console.log(req.params.id)
-            await Post.findOne({ _id: req.params.id }).populate('user').populate('comments.userId').then(post => {
-                // console.log("post--", post)
-                res.status(HttpStatus.OK).json({ message: format(messenger.MSG0002, 'GetPost') }, post)
-            }).catch(err => {
-                return res.status(HttpStatus.NOT_FOUND)
-                    .json({ message: format(messenger.MSG0011, 'GetPost') })
-            })
+            await Post.findOne({ _id: req.params.id }).populate('users').populate('comments.userId')
+                .then(post => {
+                    // console.log("post--", post)
+                    res.status(HttpStatus.OK).json({ message: format(messenger.MSG0002, 'GetPost'), post })
+                    // console.log('aasdfas');
+                })
+                .catch(err => {
+                    return res.status(HttpStatus.NOT_FOUND)
+                        .json({ message: format(messenger.MSG0011, 'GetPost') })
+                })
         } catch (error) {
             console.log(error);
             return res.status(HttpStatus.NOT_FOUND)
