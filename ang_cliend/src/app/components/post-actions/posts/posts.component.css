@@ -32,14 +32,21 @@
 #like span {
     margin-left: 5px;
     margin-right: 5px;
+    color: #26a69a;
+    font-size: 1.5rem;
 }
 #comment {
     margin-left: 15px;
 }
 
-.iconSpan{
-    font-size: 15px;
+#comment i,
+#comment span {
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #26a69a;
+    font-size: 1.5rem;
 }
+
 
 .card-action a i{
     color: #26a69a;
