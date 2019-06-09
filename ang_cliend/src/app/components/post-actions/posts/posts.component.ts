@@ -3,6 +3,10 @@ import { PostService } from './../../../services/post.service';
 import * as moment from 'moment';
 import io from 'socket.io-client';
 import { Router } from '@angular/router';
+import { TokenService } from './../../../services/token.service';
+import * as _ from 'lodash';
+
+
 
 @Component({
   selector: 'app-posts',
@@ -12,12 +16,15 @@ import { Router } from '@angular/router';
 export class PostsComponent implements OnInit {
   socket: any;
   allPosts = [];
+  user: any;
   constructor(
     private postService: PostService,
-    private router: Router
+    private router: Router,
+    private tokenService: TokenService
   ) { this.socket = io('http://localhost:3000') }
 
   ngOnInit() {
+    this.user = this.tokenService.GetPayLoad,
     this.AllPostShow()
     this.socket.on('refreshPage', (data) => {
       this.AllPostShow()
@@ -44,6 +51,10 @@ export class PostsComponent implements OnInit {
     },
       err => console.log(err)
     )
+  }
+
+  checkLikeClick(arr, username) {
+    return _.some(arr, { username: username })
   }
 
   commentBoxClick(post) {

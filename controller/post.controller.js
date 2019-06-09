@@ -66,7 +66,7 @@ module.exports = {
     async AddLike(req, res) {
         try {
             const likeId = req.body._id
-            await Post.update({ _id: likeId }, {
+            await Post.update({ _id: likeId, 'likes.username': { $ne: req.users.username } }, {
                 $push: {
                     likes: {
                         username: req.body.username
@@ -115,7 +115,9 @@ module.exports = {
     async GetPost(req, res) {
         try {
             // console.log(req.params.id)
-            await Post.findOne({ _id: req.params.id }).populate('users').populate('comments.userId')
+            await Post.findOne({ _id: req.params.id })
+                .populate('users')
+                .populate('comments.userId')
                 .then(post => {
                     // console.log("post--", post)
                     res.status(HttpStatus.OK).json({ message: format(messenger.MSG0002, 'GetPost'), post })

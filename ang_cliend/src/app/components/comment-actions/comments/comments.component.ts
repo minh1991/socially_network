@@ -34,7 +34,7 @@ export class CommentsComponent implements OnInit, AfterViewInit {
     // console.log(this.postId);
     this.postService.GetPost(this.postId).subscribe(data => {
       // console.log(data);
-      this.commentArr = data.post;
+      this.commentArr = data.post.comments;
       console.log('commentArr--', this.commentArr);
     });
   }

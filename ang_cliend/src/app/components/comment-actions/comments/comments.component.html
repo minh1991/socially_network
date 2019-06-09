@@ -10,10 +10,12 @@
         <app-comments-form></app-comments-form>
       </div>
       <div class="row">
-        <ul class="col s12 m9 19">
+        <ul class="col s12 m9 19" *ngFor="let item of commentArr">
           <li class="collection-item avatar">
-            <img src="http://placehold.jp/50x50.png" alt="avatar">
-            <!-- <span class="title">{{item.username}}</span> -->
+            <img src="http://placehold.jp/50x50.png" alt="avatar" class="circle">
+            <span class="title">{{item.userId.username}}</span>
+            <p class="time">{{item.creatAt}}</p>
+            <p class="comment">{{item.comment}}</p>
           </li>
         </ul>
       </div>
