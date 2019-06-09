@@ -24,7 +24,8 @@ export class PostsComponent implements OnInit {
   ) { this.socket = io('http://localhost:3000') }
 
   ngOnInit() {
-    this.user = this.tokenService.GetPayLoad,
+    this.user = this.tokenService.GetPayLoad(),
+      console.log('this.user--', this.user);
     this.AllPostShow()
     this.socket.on('refreshPage', (data) => {
       this.AllPostShow()

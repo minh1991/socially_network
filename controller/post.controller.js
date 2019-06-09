@@ -66,18 +66,23 @@ module.exports = {
     async AddLike(req, res) {
         try {
             const likeId = req.body._id
-            await Post.update({ _id: likeId, 'likes.username': { $ne: req.users.username } }, {
-                $push: {
-                    likes: {
-                        username: req.body.username
-                    }
+            await Post.update(
+                {
+                    _id: likeId,
+                    'likes.username': { $ne: req.user.username }
                 },
-                $inc: { totalLikes: 1 }
-            }).then(() => {
-                res.status(HttpStatus.OK).json({ message: format(messenger.MSG0002, 'Like') })
-            }).catch((err) => {
-                res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: format(messenger.MSG0011, 'Like') })
-            })
+                {
+                    $push: {
+                        likes: {
+                            username: req.body.username
+                        }
+                    },
+                    $inc: { totalLikes: 1 }
+                }).then(() => {
+                    res.status(HttpStatus.OK).json({ message: format(messenger.MSG0002, 'Like') })
+                }).catch((err) => {
+                    res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: format(messenger.MSG0011, 'Like') })
+                })
         } catch (error) {
             console.log(error);
             return res.status(HttpStatus.INTERNAL_SERVER_ERROR)

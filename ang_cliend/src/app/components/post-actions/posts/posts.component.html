@@ -19,9 +19,9 @@
                 </div>
                 <div class="card-action">
                     <small id="like">
-                        <a (click)="likeClick(post)">
-                            <i class="material-icons"
-                                [ngClass]="(!checkLikeClick(post.like, user.username))? 'notLiked' : 'liked' ">thumb_up</i>
+                        <a (click)="likeClick(post)"
+                            [ngClass]="(!checkLikeClick(post.like, user.username))? 'notLiked' : 'liked'">
+                            <i class="material-icons">thumb_up</i>
                             <span class="iconSpan">{{post.totalLikes}}</span>
                         </a>
                     </small>
