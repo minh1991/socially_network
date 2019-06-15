@@ -1,53 +1,54 @@
 .title {
-    color: #26a69a;
-    font-weight: 500;
+  color: #26a69a;
+  font-weight: 500;
 }
-.small-title{
-    color: #7ac9c1;
-    font-weight: 400;
+.small-title {
+  color: #7ac9c1;
+  font-weight: 400;
 }
 .header,
 .content .card-content {
-    background-color: #f4fefd;
+  background-color: #f4fefd;
 }
 
 .content img {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
-.liked i{
-    color: #64b5f6 !important;
-    /* color: black !important; */
+.liked i {
+  color: #64b5f6 !important;
+  /* color: black !important; */
 }
 
 .content {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 #like {
-    margin-right: 15px;
+  margin-right: 15px;
+  cursor: pointer;
 }
 
-#like i,  
+#like i,
 #like span {
-    margin-left: 5px;
-    margin-right: 5px;
-    color: #26a69a;
-    font-size: 1.5rem;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #26a69a;
+  font-size: 1.5rem;
 }
 #comment {
-    margin-left: 15px;
+  margin-left: 15px;
+  cursor: pointer;
 }
 
 #comment i,
 #comment span {
-    margin-left: 5px;
-    margin-right: 5px;
-    color: #26a69a;
-    font-size: 1.5rem;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #26a69a;
+  font-size: 1.5rem;
 }
 
-
-.card-action a i{
-    color: #26a69a;
+.card-action a i {
+  color: #26a69a;
 }

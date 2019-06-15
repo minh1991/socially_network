@@ -8,19 +8,17 @@ import { CookieService } from 'ngx-cookie-service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenManageService } from './services/token-manage.service';
 
-
-
-
-
-
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, AuthenticationModule, FeedsModule],
-  providers: [CookieService, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenManageService,
-    multi: true
-  }],
+  providers: [
+    CookieService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenManageService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

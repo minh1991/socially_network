@@ -15,11 +15,8 @@ export class CommentsComponent implements OnInit, AfterViewInit {
   postId: any;
   commentArr = [];
 
-  constructor(
-    private postService: PostService,
-    private route: ActivatedRoute
-  ) {
-    this.socket = io('http://localhost:3000')
+  constructor(private postService: PostService, private route: ActivatedRoute) {
+    this.socket = io('http://localhost:3000');
   }
 
   // xóa phần ảnh header
@@ -29,9 +26,9 @@ export class CommentsComponent implements OnInit, AfterViewInit {
     this.navBarElm = document.querySelector('.nav-content');
     this.postId = this.route.snapshot.paramMap.get('id');
     this.GetPost();
-    this.socket.on('refreshPage', (data) => {
+    this.socket.on('refreshPage', data => {
       this.GetPost();
-    })
+    });
   }
   ngAfterViewInit(): void {
     this.navBarElm.style.display = 'none';
@@ -44,10 +41,9 @@ export class CommentsComponent implements OnInit, AfterViewInit {
   GetPost() {
     // console.log(this.postId);
     this.postService.GetPost(this.postId).subscribe(data => {
-      // console.log(data);
-      this.commentArr = data.post.comments.reverse()
+      // console.log('data---', data);
+      this.commentArr = data.post.comments.reverse();
       // console.log('commentArr--', this.commentArr);
     });
   }
-
 }

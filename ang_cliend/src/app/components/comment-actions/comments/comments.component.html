@@ -7,15 +7,18 @@
     </div>
     <div class="col s12 m9 19">
       <div class="row">
+        <app-current-post></app-current-post>
+      </div>
+      <div class="row">
         <app-comments-form></app-comments-form>
       </div>
       <div class="row">
         <ul class="col s12 m9 19" *ngFor="let item of commentArr">
           <li class="collection-item avatar">
-            <img src="http://placehold.jp/50x50.png" alt="avatar" class="circle">
-            <span class="title">{{item.userId.username}}</span>
-            <p class="time">{{DateTimeCover(item.creatAt)}}</p>
-            <p class="comment">{{item.comment}}</p>
+            <img src="http://placehold.jp/50x50.png" alt="avatar" class="circle" />
+            <span class="title">{{ item.userId.username }}</span>
+            <p class="time">{{ DateTimeCover(item.creatAt) }}</p>
+            <p class="comment">{{ item.comment }}</p>
           </li>
         </ul>
       </div>

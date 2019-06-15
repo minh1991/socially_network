@@ -1,40 +1,39 @@
 <ul class="collection" *ngFor="let post of allPosts">
-    <li class="collection-item avatar header">
-        <img src="https://pbs.twimg.com/profile_images/1046968391389589507/_0r5bQLl_400x400.jpg" alt="" class="circle">
-        <span class="title" style="font-size: 1.5rem">{{post.username}}</span>
-        <p class="small-title">{{DateTimeCover(post.createdAt)}}
-            <br> Country
-        </p>
-    </li>
+  <li class="collection-item avatar header">
+    <img src="https://pbs.twimg.com/profile_images/1046968391389589507/_0r5bQLl_400x400.jpg" alt="" class="circle" />
+    <span class="title" style="font-size: 1.5rem">{{ post.username }}</span>
+    <p class="small-title">
+      {{ DateTimeCover(post.createdAt) }} <br />
+      Country
+    </p>
+  </li>
 
-    <div class="row content">
-        <div class="col s12">
-            <div class="card">
-                <div class="card-image">
-                    <!-- <img src="https://nevadahumanesociety.org/wp-content/uploads/2018/08/NHS-Slider-03-1024x731.jpg"
+  <div class="row content">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-image">
+          <!-- <img src="https://nevadahumanesociety.org/wp-content/uploads/2018/08/NHS-Slider-03-1024x731.jpg"
                         alt=""> -->
-                </div>
-                <div class="card-content">
-                    <p>{{post.post}}</p>
-                </div>
-                <div class="card-action">
-                    <small id="like">
-                        <a (click)="likeClick(post)"
-                            [ngClass]="(!checkLikeClick(post.like, user.username))? 'notLiked' : 'liked'">
-                            <i class="material-icons">thumb_up</i>
-                            <span class="iconSpan">{{post.totalLikes}}</span>
-                        </a>
-                    </small>
-
-                    <small id="comment">
-                        <a (click)="commentBoxClick(post)">
-                            <i class="material-icons">message</i>
-                            <span class="iconSpan">{{post.comments.length}}</span>
-                        </a>
-                    </small>
-
-                </div>
-            </div>
         </div>
+        <div class="card-content">
+          <p>{{ post.post }}</p>
+        </div>
+        <div class="card-action">
+          <small id="like">
+            <a (click)="likeClick(post)" [ngClass]="!checkLikeClick(post.like, user.username) ? 'notLiked' : 'liked'">
+              <i class="material-icons">thumb_up</i>
+              <span class="iconSpan">{{ post.totalLikes }}</span>
+            </a>
+          </small>
+
+          <small id="comment">
+            <a (click)="commentBoxClick(post)">
+              <i class="material-icons">message</i>
+              <span class="iconSpan">{{ post.comments.length }}</span>
+            </a>
+          </small>
+        </div>
+      </div>
     </div>
+  </div>
 </ul>

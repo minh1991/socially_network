@@ -1,16 +1,20 @@
-.nav-extended{
-    background-color: #26a69a;
+.nav-extended {
+  background-color: #26a69a;
 }
 
 .nav-content {
-    text-align: center;
+  text-align: center;
 }
 
 .profile-name {
-    font-family: 'Great Vibes', cursive;
-    margin-top: 1rem;
+  font-family: 'Great Vibes', cursive;
+  margin-top: 1rem;
 }
 
 .user-text {
-    font-family: 'Montez', cursive;
+  font-family: 'Montez', cursive;
+}
+
+.brand-logo {
+  cursor: pointer;
 }

@@ -11,13 +11,31 @@ import { PostFormComponent } from '../components/post-actions/post-form/post-for
 import { PostsComponent } from '../components/post-actions/posts/posts.component';
 import { CommentsFormComponent } from '../components/comment-actions/comments-form/comments-form.component';
 import { CommentsComponent } from './../components/comment-actions/comments/comments.component';
-
+import { CurrentPostComponent } from './../components/comment-actions/current-post/current-post.component';
 
 @NgModule({
-  declarations: [FeedsComponent, NavBarComponent, MenuLeftComponent, PostFormComponent, PostsComponent, CommentsComponent, CommentsFormComponent],
+  declarations: [
+    FeedsComponent,
+    NavBarComponent,
+    MenuLeftComponent,
+    PostFormComponent,
+    PostsComponent,
+    CommentsComponent,
+    CommentsFormComponent,
+    CurrentPostComponent
+  ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule],
 
-  exports: [FeedsComponent, NavBarComponent, MenuLeftComponent, PostFormComponent, PostsComponent],
+  exports: [
+    FeedsComponent,
+    NavBarComponent,
+    MenuLeftComponent,
+    PostFormComponent,
+    PostsComponent,
+    CommentsComponent,
+    CommentsFormComponent,
+    CurrentPostComponent
+  ],
   providers: [TokenService, PostService]
 })
-export class FeedsModule { }
+export class FeedsModule {}

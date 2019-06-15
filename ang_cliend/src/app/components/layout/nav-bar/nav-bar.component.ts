@@ -10,10 +10,7 @@ import { Router } from '@angular/router';
 export class NavBarComponent implements OnInit {
   user: any;
 
-  constructor(
-    private tokenService: TokenService,
-    private router: Router,
-  ) { }
+  constructor(private tokenService: TokenService, private router: Router) {}
 
   ngOnInit() {
     this.user = this.tokenService.GetPayLoad();
@@ -25,4 +22,7 @@ export class NavBarComponent implements OnInit {
     this.router.navigate(['']);
   }
 
+  BackHome() {
+    this.router.navigate(['feed']);
+  }
 }
