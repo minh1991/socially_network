@@ -2,7 +2,6 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { PostService } from './../../../services/post.service';
 import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
-
 import io from 'socket.io-client';
 
 @Component({
@@ -19,7 +18,9 @@ export class CommentsComponent implements OnInit, AfterViewInit {
   constructor(
     private postService: PostService,
     private route: ActivatedRoute
-  ) { this.socket = io('http://localhost:3000') }
+  ) {
+    this.socket = io('http://localhost:3000')
+  }
 
   // xóa phần ảnh header
   // bắt đầu sẽ cho bắt class nav-content của phần nav-bar
@@ -29,18 +30,22 @@ export class CommentsComponent implements OnInit, AfterViewInit {
     this.postId = this.route.snapshot.paramMap.get('id');
     this.GetPost();
     this.socket.on('refreshPage', (data) => {
-      this.GetPost(); 
+      this.GetPost();
     })
   }
   ngAfterViewInit(): void {
     this.navBarElm.style.display = 'none';
   }
 
+  DateTimeCover(time) {
+    return moment(time).fromNow();
+  }
+
   GetPost() {
     // console.log(this.postId);
     this.postService.GetPost(this.postId).subscribe(data => {
       // console.log(data);
-      this.commentArr = data.post.comments;
+      this.commentArr = data.post.comments.reverse()
       // console.log('commentArr--', this.commentArr);
     });
   }
