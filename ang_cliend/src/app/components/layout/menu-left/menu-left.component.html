@@ -24,28 +24,30 @@
 <ul class="collection">
   <li class="collection-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">
     <a [routerLink]="['/feed']">
-      <div>
+      <div class="item">
         Home<a href="#!" class="secondary-content"><i class="material-icons">home</i></a>
       </div>
     </a>
   </li>
-  <li class="collection-item">
-    <div>
-      People<a href="#!" class="secondary-content"><i class="material-icons">people</i></a>
-    </div>
+  <li class="collection-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">
+    <a [routerLink]="['/friend']">
+      <div class="item">
+        Friend<a href="#!" class="secondary-content"><i class="material-icons">people</i></a>
+      </div>
+    </a>
   </li>
   <li class="collection-item">
-    <div>
+    <div class="item">
       Follow<a href="#!" class="secondary-content"><i class="material-icons">sentiment_very_satisfied</i></a>
     </div>
   </li>
   <li class="collection-item">
-    <div>
+    <div class="item">
       Photo<a href="#!" class="secondary-content"><i class="material-icons">photo_album</i></a>
     </div>
   </li>
   <li class="collection-item">
-    <div>
+    <div class="item">
       Notification<a href="#!" class="secondary-content"><i class="material-icons">notifications_active</i></a>
     </div>
   </li>

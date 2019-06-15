@@ -1,7 +1,10 @@
 .news {
   text-align: center;
 }
-
+.item {
+  color: #26a699e8;
+  font-weight: 400;
+}
 .news-item {
   margin: 0 2% 0 2%;
   padding: 2%;

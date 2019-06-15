@@ -13,6 +13,8 @@ import { PostsComponent } from '../components/post-actions/posts/posts.component
 import { CommentsFormComponent } from '../components/comment-actions/comments-form/comments-form.component';
 import { CommentsComponent } from './../components/comment-actions/comments/comments.component';
 import { CurrentPostComponent } from './../components/comment-actions/current-post/current-post.component';
+import { FriendComponent } from '../components/friend-actions/friend/friend.component';
+import { FriendItemComponent } from '../components/friend-actions/friend-item/friend-item.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { CurrentPostComponent } from './../components/comment-actions/current-po
     PostsComponent,
     CommentsComponent,
     CommentsFormComponent,
-    CurrentPostComponent
+    CurrentPostComponent,
+    FriendComponent,
+    FriendItemComponent
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule],
 
