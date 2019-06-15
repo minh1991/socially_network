@@ -18,4 +18,10 @@
 
 .news-item p {
   color: aliceblue;
+  margin: 0;
+  text-align: center;
+}
+
+.active div {
+  color: aliceblue;
 }
