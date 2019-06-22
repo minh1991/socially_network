@@ -15,6 +15,7 @@ import { CommentsComponent } from './../components/comment-actions/comments/comm
 import { CurrentPostComponent } from './../components/comment-actions/current-post/current-post.component';
 import { FriendComponent } from '../components/friend-actions/friend/friend.component';
 import { FriendItemComponent } from '../components/friend-actions/friend-item/friend-item.component';
+import { UsersService } from './../services/users.service';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,6 @@ import { FriendItemComponent } from '../components/friend-actions/friend-item/fr
     CommentsFormComponent,
     CurrentPostComponent
   ],
-  providers: [TokenService, PostService]
+  providers: [TokenService, PostService, UsersService]
 })
 export class FeedsModule {}
