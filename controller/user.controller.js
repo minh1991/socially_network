@@ -8,8 +8,8 @@ module.exports = {
     try {
       await User.find({})
         .populate('posts.postId')
-        .then(result => {
-          res.status(HttpStatus.OK).json({ message: messenger.MSG0012, result });
+        .then(allUsers => {
+          res.status(HttpStatus.OK).json({ message: messenger.MSG0012, allUsers });
         })
         .catch(err => {
           res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: format(messenger.MSG0000, 'All Users') });

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 // import { UsersService } from '../../../services/users.service';
 
 @Component({
@@ -7,13 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./friend-item.component.css']
 })
 export class FriendItemComponent implements OnInit {
-  // users: [];
-  constructor() // private userService: UsersService
-  {}
+  @Input() dataUsers: any;
 
-  ngOnInit() {
-    // this.userService.GetAllUsers().subscribe(data => {
-    //   console.log('Fr Item data--', data);
-    // });
-  }
+  constructor() {}
+
+  ngOnInit() {}
 }
