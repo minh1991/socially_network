@@ -7,6 +7,7 @@ const cors = require('cors');
 const AuthRouter = require('./routers/authentication.router');
 const PostRouter = require('./routers/post.router');
 const UserRouter = require('./routers/user.router');
+const FriendRouter = require('./routers/friend.router')
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(morgan('dev'));
 app.use('/api/socially', AuthRouter);
 app.use('/api/socially/post', PostRouter);
 app.use('/api/socially/users', UserRouter);
+app.use('/api/socially/friends', FriendRouter)
 
 // DATA BASE
 mongoose.Promise = global.Promise;

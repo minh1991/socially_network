@@ -10,6 +10,13 @@ const UserSchema = new mongoose.Schema({
       createdAt: { type: Date, default: Date.now() }
     }
   ],
+
+  following: [
+    { followed: { type: mongoose.Schema.Types.ObjectId, ref: "users" } }
+  ],
+  followers: [
+    { follower: { type: mongoose.Schema.Types.ObjectId, ref: "users" } }
+  ],
   date: {
     type: Date,
     default: Date.now()
