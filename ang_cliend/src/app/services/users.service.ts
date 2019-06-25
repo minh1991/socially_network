@@ -19,4 +19,12 @@ export class UsersService {
       followed
     });
   }
+
+  GetUserById(id): Observable<any> {
+    return this.http.get(`${BASEURL}/${id}`);
+  }
+
+  GetUserByUsername(username): Observable<any> {
+    return this.http.get(`${BASEURL}/${username}`);
+  }
 }

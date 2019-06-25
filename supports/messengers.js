@@ -13,6 +13,7 @@ const messenger = {
     MSG0011: '{0} thất bại',
     MSG0012: 'All Users',
     MSG0013: '{0} Users',
+    MSG0014: 'Users by {0}'
 }
 
 module.exports = messenger
