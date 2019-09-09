@@ -1,5 +1,10 @@
+.card-image {
+  padding: 5%;
+}
+
 .card-image .imgCirle {
   border-radius: 50%;
+  width: 100%;
 }
 
 .card-title {
